@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+
+    <title>AJAX/PHP/CURL/JSON example</title>
+    <meta name="description" content="AJAX/PHP/CURL/JSON example">
+    <link rel="stylesheet" href="./libs/css/style.css">
+    <meta name="author" content="Nicolas Doglioli">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <div id="main">
+
+        <table border="1" cellpadding="1" id="fulltable">
+
+            <tbody>
+            <tr>
+            <td class="apiColumn">API name</td>
+            <td class="descriptionColumn">API description</td>
+            <td class="buttonColumn"></td>
+            </tr>
+            <tr>
+            <td class="apiColumn">1. countryCode</td>
+            <td class="descriptionColumn">
+                <p> Entere latitude/longitude to get the ISO country code </p>
+                <label for="">Latitude: </label><input type="number" id="latitud" class="inputNumber" min="1" max="99"> <label for="">Logitude: </label><input type="number" id="longitud" class="inputNumber" min="1" max="99" ></td>
+            <td class="buttonColumn"><button type="button" class="btn btn-primary" id="btnRun">Submit</button></td>
+            </tr>
+            <tr>
+                <td class="apiColumn">2. Eathquake </td>
+
+                <td height="65px" class="descriptionColumn" >
+                    <p>enter coordinates of north,south ,east and west to get  earthquakes</p>
+                    <div id="inputeq">
+                        <label for="">Norte :</label><input type="number" id="norte" class="inputNumber" min="1" max="99"> <label for="">Sur :</label><input type="number" id="sur" class="inputNumber" min="1" max="99">
+                     <br>
+                     <label for="">Este :</label><input type="number" id="este" class="inputNumber" min="1" max="99"> <label for="">Oeste :</label><input type="number" id="oeste" class="inputNumber" min="1" max="99">
+                    </div>
+                     
+                </td>
+                <td class="buttonColumn"><button type="button" class="btn btn-primary" id="btnRun2">Submit</button></td>
+                </tr>
+            <tr>
+            <td class="apiColumn">3. address</td>
+            
+            
+            <td height="65px" class="descriptionColumn">
+                <p> please select latitude/longitude to know  weather station with the most recent weather observation</p>
+                 <label for="">Latitud</label><input type="number" id="latitudw" class="inputNumber" min="1" max="99"> <label for="">Logitud</label><input type="number" id="longitudw" class="inputNumber" min="1" max="99"></td>
+            <td class="buttonColumn"><button type="button" class="btn btn-primary" id="btnRun3">Submit</button></td>
+            </tr>
+            <tr>
+
+            
+                
+            <td  colspan="3" height="300px">              
+                
+                <table id="t1"class="results">
+
+                    <tr>
+                        <td align="right">
+                            languages: 
+                        </td>
+                        <td id="txtLanguages">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            distance: 
+                        </td>
+                        <td id="txtDistance">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            countryCode: 
+                        </td>
+                        <td id="txtCountryCode">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            countryName: 
+                        </td>
+                        <td id="txtCountryName">
+                            
+                        </td>
+    
+                    </tr>       
+    
+                </table>
+
+
+
+                <table id="t2"class="results">
+
+                    <tr>
+                        <td align="right">
+                            Datetime: 
+                        </td>
+                        <td id="txtDatetime">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            Depth: 
+                        </td>
+                        <td id="txtDepth">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            Src:
+                        </td>
+                        <td id="txtSrc">
+                            
+                        </td>
+    
+                    </tr>
+    
+                    <tr>
+                        <td align="right">
+                            Eqid: 
+                        </td>
+                        <td id="txtEqid">
+                            
+                        </td>
+    
+                    </tr> 
+                    
+                    <tr>
+                        <td align="right">
+                            Magnitude: 
+                        </td>
+                        <td id="txtMagnitude">
+                            
+                        </td>
+    
+                    </tr>
+
+                    <tr>
+                        <td align="right">
+                            Lat: 
+                        </td>
+                        <td id="txtLat">
+                            
+                        </td>
+    
+                    </tr>
+    
+                </table>
+                <table id="t3"class="results">
+                    
+                    <tr>
+                        <td align="right">
+                            Cloudsxx:
+                        </td>
+                        <td id="r3Clouds">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            cloudsCode:
+                        </td>
+                        <td id="r3cloudsCode">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            countryCode:
+                        </td>
+                        <td id="r3CountryCode">
+                            
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td align="right">
+                            temperature:
+                        </td>
+                        <td id="r3Temperature">
+                            
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td align="right">
+                            humidity:
+                        </td>
+                        <td id="r3Humidity">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            stationName:
+                        </td>
+                        <td id="r3StationName">
+                            
+                        </td>
+                    </tr>  
+                    
+                            
+    
+                </table>
+
+            </td>
+           
+            </tbody>
+            </table>
+
+    </div>
+
+    <div id="preloader">
+
+    </div>
+
+
+
+
+    <script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+    <script type="application/javascript" src="libs/js/scriptCode.js"></script>
+
+</body>
+</html>
